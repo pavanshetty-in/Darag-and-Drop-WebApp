@@ -11,3 +11,22 @@
     position: relative;
     margin-left: 5vw;
 }
+.dropsec
+{
+    min-height: 88vh;
+    background-image: url("./../images/v1043-089a.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100%;
+    
+}
+.dragitem1{
+    max-width: 4vw;
+
+}
+.dragitem2{
+    max-width: 10vw;
+}
+.dragitem3{
+    max-width:3vw;
+}

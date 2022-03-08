@@ -18,34 +18,43 @@
                 <h1>Drag and Drop</h1>
             </div>
             <div class="d-flex align-items-center py-3">
-                <div class="dragable">
-                <img  src="./public/images/green_1.png" alt="1" height="20" width="20">
+                <div class="dragitem1">
+                <img class="dragable img-fluid" src="./public/images/green_1.png" alt="1" >
                 </div>
-                <div class="px-4 ">M2</div>
-                <img class="dragable"  src="./public/images/green_10_horizontal.png" alt="10" height="20" width="200">
-                <div class="px-4 ">M1</div>
-                <img class="dragable" src="./public/images/green_100.png" alt="10" height="50" width="50">
-                <div class="px-4">M3</div>
+                <div class="px-4 ">1</div>
+                <div class="dragitem2">
+                <img class="dragable img-fluid"  src="./public/images/green_10_horizontal.png" alt="10" >
+                </div>
+                <div class="px-4 ">10</div>
+                <div class="dragitem3">
+                <img class="dragable img-fluid" src="./public/images/green_100.png" alt="100" >
+                </div>
+                <div class="px-4">100</div>
             </div>
         </div>
     </nav>
-    <section id="dropable" class="container-fluid" style="background-color: aqua; min-height: 88vh;">
+    <section id="dropable" class="container-fluid dropsec" >
 
     </section>
 </body>
 
 <script>
-    $(document).ready(function() {
+    $(function() {
         $(".dragable").draggable({helper:'clone'});
+        
         $('#dropable').droppable(
             {
                 accept:".dragable",
                 drop:function(ev,ui){
                     var item=$(ui.draggable).clone();
-                    $(this).append($(item).draggable({containment: "#dropable", scroll: false}));
+                    $(item).draggable({containment: "#dropable", scroll: false,snap:true})
+                    //  $(this).append();
+                    $(item).removeClass('dragable').addClass('draged');
+                     $(this).append(item);
                 }
             }
         );
+        $(".draged").draggable({helper:'clone'});
     })
 </script>
 </html>
